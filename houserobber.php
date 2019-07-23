@@ -36,20 +36,31 @@ function robber1($arr)
     $dp[0]=0;
     $dp[1]=$arr[0];
     $dp[2]=$arr[1];
-    for($i=3;$i<=$count-2;$i++)
+    for($i=3;$i<=$count-1;$i++)
     {
         $dp[$i]=max($dp[$i-2]+$arr[$i-1],$dp[$i-1]);
     }
+<<<<<<< HEAD
     $temp1=$dp[$count-2];
     $dp[0]=$arr[1];
     $dp[1]=max($arr[1],$arr[2]);
     for($i=2;$i<=$count-1;$i++)
     {
         $dp[$i]=max($dp[$i-2]+$arr[$i+1],$dp[$i-1]);
+=======
+    $temp1=$dp[$count-1];
+    print_r($dp);
+    $dp[0]=0;
+    $dp[1]=$arr[1];
+    for($i=2;$i<=$count-1;$i++)
+    {
+        $dp[$i]=max($dp[$i-2]+$arr[$i],$dp[$i-1]);
+>>>>>>> cc701c3efbe025d8b515d7484b786e90520a0e6c
     }
     $temp2=$dp[$count-1];
+    print_r($dp);
     return max($temp1,$temp2);
 
 }
-$arr=[1,2,3,1];
+$arr=[2,3,2];
 echo robber1($arr);
