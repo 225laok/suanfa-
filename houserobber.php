@@ -41,11 +41,11 @@ function robber1($arr)
         $dp[$i]=max($dp[$i-2]+$arr[$i-1],$dp[$i-1]);
     }
     $temp1=$dp[$count-2];
-    $dp[0]=0;
-    $dp[1]=$arr[1];
+    $dp[0]=$arr[1];
+    $dp[1]=max($arr[1],$arr[2]);
     for($i=2;$i<=$count-1;$i++)
     {
-        $dp[$i]=max($dp[$i-2]+$arr[$i-1],$dp[$i-1]);
+        $dp[$i]=max($dp[$i-2]+$arr[$i+1],$dp[$i-1]);
     }
     $temp2=$dp[$count-1];
     return max($temp1,$temp2);
